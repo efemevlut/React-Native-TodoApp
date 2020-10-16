@@ -2,13 +2,20 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 
 const TodoItem = ({pressHandler, item}) => {
+
+  
+
   return (
-    <TouchableOpacity onPress={() => pressHandler(item.key)}>
+    <View>
       <View style={styles.item}>
-        <Image source={require("../asset/delete.png")} style={styles.img}/>
-        <Text style={styles.itemText}>{item.text}</Text>
+        <TouchableOpacity onPress={() => pressHandler(item.key)}>
+          <Image source={require('../asset/delete.png')} style={styles.img} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.itemText}>{item.text}</Text>
+        </TouchableOpacity>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -19,18 +26,21 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 10,
     borderWidth: 1,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderRadius: 10,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   img: {
     width: 25,
     height: 25,
-    resizeMode: "stretch", 
+    resizeMode: 'stretch',
   },
   itemText: {
     marginLeft: 10,
-    textAlignVertical: "center",
+    textAlignVertical: 'center',
+  },
+  itemTextUnderline: {
+    textDecorationLine: "line-through",
   }
 });
 
